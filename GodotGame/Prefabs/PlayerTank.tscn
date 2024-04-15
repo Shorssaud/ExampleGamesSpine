@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=3 uid="uid://ck30mf6r3h7xf"]
+
+[ext_resource type="Texture2D" uid="uid://bekbyk5ori6k8" path="res://Sprites/TankBlueBase.png" id="1_4etvd"]
+[ext_resource type="Texture2D" uid="uid://cvxxjq4vi6ysd" path="res://Sprites/tank_blue_turret.png" id="2_xsnmc"]
+
+[sub_resource type="GDScript" id="GDScript_ikhuy"]
+script/source = "extends CharacterBody2D
+
+const SPEED = 30.0
+const SHOTSPEED= 50
+const SHOTWAIT = 0.3
+const SHOTCOLL = 2
+
+const BULLET = preload(\"res://Prefabs/bullet.tscn\")
+
+func _physics_process(delta):
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var horizontal = Input.get_axis(\"ui_left\", \"ui_right\")
+	var vertical = Input.get_axis(\"ui_up\", \"ui_down\")
+	
+	if(Input.is_key_pressed(KEY_SPACE) && %ShotTimer.time_left <= 0):
+		shoot()
+	move(horizontal, vertical);
+	
+	
+func move(horizontal, vertical):
+	if (horizontal == 0 && vertical == 0):
+		velocity = Vector2.ZERO;
+	
+	velocity = Vector2(horizontal, vertical) * SPEED;
+	look_at(position + Vector2(horizontal, vertical));
+	
+	move_and_slide()
+
+func shoot():
+	%ShotTimer.start(SHOTWAIT)
+	var main = get_tree().current_scene
+	var new_bullet = BULLET.instantiate();
+	main.add_child(new_bullet)
+	new_bullet.global_position = %ShootingPoint.global_position;
+	new_bullet.global_rotation = %ShootingPoint.global_rotation;
+	new_bullet.SPEED = SHOTSPEED;
+	new_bullet.COLLISIONS = 2
+	
+func take_damage():
+	queue_free()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40ngi"]
+size = Vector2(10.9661, 10.4439)
+
+[sub_resource type="GDScript" id="GDScript_nllt7"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	look_at(get_global_mouse_position())
+	rotation_degrees += 90
+"
+
+[node name="PlayerTank" type="CharacterBody2D"]
+position = Vector2(34, 100)
+scale = Vector2(2, 2)
+collision_layer = 4
+collision_mask = 35
+script = SubResource("GDScript_ikhuy")
+
+[node name="Base" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_4etvd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.261097, 0)
+shape = SubResource("RectangleShape2D_40ngi")
+
+[node name="Cannon" type="Sprite2D" parent="."]
+position = Vector2(-2, 0)
+rotation = 1.5708
+texture = ExtResource("2_xsnmc")
+script = SubResource("GDScript_nllt7")
+
+[node name="ShootingPoint" type="Marker2D" parent="Cannon"]
+unique_name_in_owner = true
+position = Vector2(-2.07424e-05, -5.74413)
+
+[node name="ShotTimer" type="Timer" parent="Cannon"]
+unique_name_in_owner = true
+process_callback = 0
+wait_time = 0.3
+one_shot = true
+autostart = true
