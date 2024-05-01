@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     Stopwatch LevelTime;
 
     public static GameManager instance;
+    private SpineAnalyticsAPI spineAnalyticsAPI;
 
     void Awake()
     {
@@ -28,18 +29,19 @@ public class GameManager : MonoBehaviour
         GameTime.Start();
         LevelTime.Start();
         onTransition = true;
+
+        spineAnalyticsAPI = GetComponent<SpineAnalyticsAPI>();
+        spineAnalyticsAPI.initialize("APIKEYHERE", "GAMEID");
     }
 
     void Update()
     {
-        UnityEngine.Debug.Log(onTransition);
         checkLose();
         checkWin();
     }
 
     private void checkLose()
     {
-        UnityEngine.Debug.Log(GameObject.FindGameObjectsWithTag("Player").Length);
         if (GameObject.FindGameObjectsWithTag("Player").Length == 0 && !onTransition) {
             onTransition = true;
             //player.RemoveLife();
@@ -77,6 +79,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Lives", PlayerPrefs.GetInt("Lives") - 1);
         UnityEngine.Debug.Log("Player lost at level" + PlayerPrefs.GetInt("Level"));
         UnityEngine.SceneManagement.SceneManager.LoadScene("Scenes/Menus/LoseMenu");
+        SendData();
     }
 
     IEnumerator WinAndNext()
@@ -105,6 +108,18 @@ public class GameManager : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void SendData()
+    {
+        SpineAnalyticsAPI.StatisticData timeData = new SpineAnalyticsAPI.StatisticData
+        {
+            title = "This Works",
+            value = GameTime.Elapsed.Seconds.ToString()
+        };
+
+        spineAnalyticsAPI.gameSessionData.statistics.Add(timeData);
+        spineAnalyticsAPI.SendSessionAsync();
     }
 
     private void OnDestroy()

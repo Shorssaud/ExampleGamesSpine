@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://becf0p3hgv4bc"]
+[gd_scene load_steps=8 format=3 uid="uid://becf0p3hgv4bc"]
 
 [ext_resource type="PackedScene" uid="uid://ck30mf6r3h7xf" path="res://Prefabs/PlayerTank.tscn" id="1_6v4ig"]
+[ext_resource type="Script" path="res://SpineAnalyticsAPI.gd" id="1_qhkpc"]
 [ext_resource type="PackedScene" uid="uid://0pscaatre8ud" path="res://Prefabs/ai_tank_beige.tscn" id="3_4hudk"]
 [ext_resource type="Texture2D" uid="uid://bwld8lxksfvuj" path="res://Sprites/BaseTileset.png" id="3_n88ur"]
 
@@ -47,6 +48,7 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_da0p3")
 sources/0 = SubResource("TileSetAtlasSource_5ht7o")
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_qhkpc")
 
 [node name="PlayerTank" parent="." instance=ExtResource("1_6v4ig")]
 position = Vector2(70, 118)

@@ -7,6 +7,12 @@
       "dependencies": {},
       "hash": "88623988179d35ce2da93b7740d6e7be59fcc971"
     },
+    "com.spine.analytics": {
+      "version": "file:C:/Users/Work/Documents/GitHub/ExampleUnityGameSpine/Unity Package/Spine Analytics",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,

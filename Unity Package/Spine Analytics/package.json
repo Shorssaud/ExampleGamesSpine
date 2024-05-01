@@ -1,0 +1,20 @@
+{
+  "name": "com.spine.analytics",
+  "version": "1.0.1",
+  "displayName": "Spine Analytics",
+  "description": "This package contains scripts useful to easily implement the spine analytics sdk into your project",
+  "unity": "2019.1",
+  "unityRelease": "0b5",
+  "documentationUrl": "",
+  "changelogUrl": "",
+  "licensesUrl": "",
+  "keywords": [
+    "backend",
+    "analytics"
+  ],
+  "author": {
+    "name": "Shaun Orssaud",
+    "email": "NA@NA.com",
+    "url": "https://www.NA.com"
+  }
+}

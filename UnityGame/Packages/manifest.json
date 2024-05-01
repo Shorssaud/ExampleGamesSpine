@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "com.nobi.roundedcorners": "https://github.com/kirevdokimov/Unity-UI-Rounded-Corners.git",
+    "com.spine.analytics": "file:C:/Users/Work/Documents/GitHub/ExampleUnityGameSpine/Unity Package/Spine Analytics",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.ai.navigation": "1.1.5",
     "com.unity.collab-proxy": "2.2.0",
