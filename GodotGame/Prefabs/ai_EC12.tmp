@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6as3e8cmehpt"]
+
+[ext_resource type="Texture2D" uid="uid://8br75f5no461" path="res://Sprites/TankAshBase.png" id="1_nasy8"]
+[ext_resource type="Texture2D" uid="uid://byxsm3o8dxgbo" path="res://Sprites/TankAshTurret.png" id="2_5a166"]
+
+[sub_resource type="GDScript" id="GDScript_3dtsl"]
+script/source = "extends CharacterBody2D
+
+const SHOTSPEED= 50
+const SHOTWAIT = 1
+const SHOTCOLL = 0
+const ROTSPEED = 1
+const BULLET = preload(\"res://Prefabs/bullet.tscn\")
+
+var rotGoal = 0
+var rotMod = 1
+
+func _ready():
+	rotGoal = rotation
+
+func _physics_process(delta):
+	var playerPos = get_parent().get_node(\"PlayerTank\").position
+	
+	if %CannonRaycast.get_collider() == get_parent().get_node(\"PlayerTank\") && %ShotTimer.time_left <= 0:
+		shoot()
+	%Cannon.look_at(playerPos);
+	%NavigationAgent2D.target_position = playerPos
+	vartemp = %NavigationAgent2D.get_next_path_position()
+	print(temp) 
+		
+		
+func shoot():
+	%ShotTimer.start(SHOTWAIT)
+	var main = get_tree().current_scene
+	var new_bullet = BULLET.instantiate();
+	main.add_child(new_bullet)
+	new_bullet.global_position = %ShootingPoint.global_position;
+	new_bullet.global_rotation = %ShootingPoint.global_rotation;
+	new_bullet.SPEED = SHOTSPEED
+	new_bullet.COLLISIONS = SHOTCOLL
+	
+func take_damage():
+	queue_free()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85r7r"]
+size = Vector2(10.9661, 10.4439)
+
+[node name="AITankAsh" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 32
+collision_mask = 39
+script = SubResource("GDScript_3dtsl")
+
+[node name="Base" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_nasy8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.261097, 0)
+shape = SubResource("RectangleShape2D_85r7r")
+
+[node name="Cannon" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-2, 0)
+texture = ExtResource("2_5a166")
+
+[node name="CannonRaycast" type="RayCast2D" parent="Cannon"]
+unique_name_in_owner = true
+target_position = Vector2(0, -300)
+collision_mask = 39
+collide_with_areas = true
+
+[node name="ShotTimer" type="Timer" parent="Cannon"]
+unique_name_in_owner = true
+process_callback = 0
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="ShootingPoint" type="Marker2D" parent="Cannon"]
+unique_name_in_owner = true
+position = Vector2(-2.07424e-05, -5.74413)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true

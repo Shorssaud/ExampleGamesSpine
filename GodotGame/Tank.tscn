@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://cf4qkyddcdc5s"]
+
+[ext_resource type="Script" path="res://Tank.gd" id="1_dbogw"]
+[ext_resource type="PackedScene" uid="uid://dvikmetv8mkym" path="res://Models/Tank.glb" id="1_l27pn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_767uy"]
+albedo_color = Color(0.678431, 0.647059, 0.341176, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i1as5"]
+size = Vector3(2.68494, 1.52039, 2.86975)
+
+[sub_resource type="GDScript" id="GDScript_ac8gc"]
+script/source = "extends CharacterBody3D
+
+
+const SPEED = 5.0
+const JUMP_VELOCITY = 4.5
+
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting(\"physics/3d/default_gravity\")
+
+
+func _physics_process(delta):
+	# Add the gravity.
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var input_dir = Input.get_vector(\"ui_left\", \"ui_right\", \"ui_up\", \"ui_down\")
+	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+
+	move_and_slide()
+"
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(13.9277, 0, 0, 0, 0.432753, 0, 0, 0, 15.0028, 0, 0, 0)
+use_collision = true
+material = SubResource("StandardMaterial3D_767uy")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-3.78552e-08, -0.5, 0.866025, -2.18557e-08, 0.866025, 0.5, -1, 0, -4.37114e-08, 15.1956, 12.6294, -0.665199)
+size = 6.405
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.789753, 0.583246, 0.190039, 0.0857784, -0.411757, 0.907247, 0.607398, -0.7002, -0.375216, 1.82062, 18.3578, -2.17245)
+
+[node name="Tank" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.649339, 2)
+script = ExtResource("1_dbogw")
+
+[node name="TankModel" parent="Tank" instance=ExtResource("1_l27pn")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tank"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00750732, 0.200134, -0.00164795)
+shape = SubResource("BoxShape3D_i1as5")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = SubResource("GDScript_ac8gc")

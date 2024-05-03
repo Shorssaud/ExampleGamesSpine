@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Work\\Documents\\GitHub\\ExampleUnityGameSpine\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5E3909A8-FC71-8ACB-2E72-E4FF0C821A98}|Assembly-CSharp.csproj|c:\\users\\work\\documents\\github\\exampleunitygamespine\\assets\\scripts\\spineanalyticssdk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E3909A8-FC71-8ACB-2E72-E4FF0C821A98}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\spineanalyticssdk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SpineAnalyticsSDK.cs",
+              "DocumentMoniker": "C:\\Users\\Work\\Documents\\GitHub\\ExampleUnityGameSpine\\Assets\\Scripts\\SpineAnalyticsSDK.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SpineAnalyticsSDK.cs",
+              "ToolTip": "C:\\Users\\Work\\Documents\\GitHub\\ExampleUnityGameSpine\\Assets\\Scripts\\SpineAnalyticsSDK.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SpineAnalyticsSDK.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T00:09:20.049Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
