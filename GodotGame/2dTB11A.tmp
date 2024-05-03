@@ -48,6 +48,7 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_da0p3")
 sources/0 = SubResource("TileSetAtlasSource_5ht7o")
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_qhkpc")
 
 [node name="PlayerTank" parent="." instance=ExtResource("1_6v4ig")]
 position = Vector2(70, 118)
@@ -66,6 +67,3 @@ zoom = Vector2(1.27, 1.27)
 
 [node name="AITankBeige" parent="." instance=ExtResource("3_4hudk")]
 position = Vector2(508, 179)
-
-[node name="SpineAnalytics" type="Node" parent="."]
-script = ExtResource("1_qhkpc")

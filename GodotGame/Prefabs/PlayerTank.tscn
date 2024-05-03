@@ -13,6 +13,12 @@ const SHOTCOLL = 2
 
 const BULLET = preload(\"res://Prefabs/bullet.tscn\")
 
+var spineAnalyticsAPI
+
+func _ready():
+	spineAnalyticsAPI = get_node(\"/root/SpineAnalyticsApi\")
+	spineAnalyticsAPI.initialize(\"API_SECRET_KEY\", \"GAME_ID\")
+	
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -44,6 +50,15 @@ func shoot():
 	new_bullet.COLLISIONS = 2
 	
 func take_damage():
+	# Send statistic indicating the player died once
+	spineAnalyticsAPI.gameSessionData.statistics.append({
+		title = \"Player Deaths\",
+		description = \"Number of times the player died\",
+		value = \"1\"
+	})
+	
+	# Send session data
+	spineAnalyticsAPI.send_session()
 	queue_free()
 "
 
