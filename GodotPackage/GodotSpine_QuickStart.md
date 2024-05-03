@@ -3,7 +3,7 @@
 1. Add the SpineAnalyticsAPI.gd file to your game repository
 2. Add the SpineAnalyticsAPi.gd to the autoload in project->project settings->autoload
    ![alt text](image.png)
-3. Add the following to a script
+3. Get the spineAnalyticsApi node and initialize it 
 
 ```gdscript
 var spineAnalyticsAPI
@@ -19,10 +19,10 @@ func _ready():
 spineAnalyticsAPI.gameSessionData.statistics.append({
 		title = "Player Deaths",
 		description = "Number of times the player died",
-		value = "1"
+		value = deathCount
 	})
 ```
-
+Here we add a statistic of "Player Deaths" with the value of the deathCount variable (deathCount = 1) to the spineAnalyticsApi
 
 5. Send the data
 
