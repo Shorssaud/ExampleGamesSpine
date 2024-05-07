@@ -66,17 +66,19 @@ class SessionResponse:
 
 var baseUrl: String = "https://app-ekrmeoi24a-uc.a.run.app"
 var apiKey: String
+var devId: String
 var sessionId: String
 var gameSessionData: GameSessionData = GameSessionData.new()
 
-func initialize(_ApiKey: String, _gameId: String) -> void:
+func initialize(_ApiKey: String, _gameId: String, _devId) -> void:
 	apiKey = _ApiKey
 	gameSessionData.gameId = _gameId
+	devId = _devId
 
 # Method to add a game session
 func send_session() -> void:
 	var url: String = "%s/statistics/newSession" % baseUrl
-	var headers: PackedStringArray = (["x-api-key: " + apiKey, "content-type: application/json"])
+	var headers: PackedStringArray = (["dev-api-key: " + apiKey, "content-type: application/json", "user-id: " + devId])
 	var body = JSON.stringify(gameSessionData.get_serializable_properties())
 	var request = HTTPRequest.new()
 	add_child(request)
