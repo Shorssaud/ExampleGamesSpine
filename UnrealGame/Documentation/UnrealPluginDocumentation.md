@@ -19,6 +19,9 @@ Pour ajouter des réalisations à la session, utilisez le nœud "Add Achievement
 
 Pour ajouter des erreurs à la session, utilisez le nœud "Add Error To Session" en fournissant les détails de l'erreur.
 
+### INFORMATION
+
+To use all the nodes described above you have tu use the tools to create each object these tools are describes just under.
 
 ### Création d'objets structurés
 
