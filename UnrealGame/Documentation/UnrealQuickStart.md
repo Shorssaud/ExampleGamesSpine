@@ -4,7 +4,7 @@
 
 ### 1. Téléchargement du plugin
 
-Téléchargez le fichier zip du plugin à partir du [repo GitHub](lien_vers_le_repo).
+Téléchargez le fichier zip du plugin à partir du [repo GitHub](https://github.com/Shorssaud/ExampleGamesSpine/releases).
 
 ### 2. Extraction du fichier zip
 
