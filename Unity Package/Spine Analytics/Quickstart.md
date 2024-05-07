@@ -1,7 +1,7 @@
 # Unity Spine Analytics API Quickstart
 First you'll need an API Key and UserID which can be found in your profile page, as well as your GameID which can be found on your published game page
 1. Download The Package
-We have created a unity package to easily use the Spine analytics API in Unity, you can downlaod it here: (soon a link)
+We have created a unity package to easily use the Spine analytics API in Unity, you can download it here: (soon a link)
 2. Install the package into your project
 Go to your project into Window->Package Manager and add the downloaded package from disk
 3. Add the SpineAnalyticsAPI component to a gameobject
