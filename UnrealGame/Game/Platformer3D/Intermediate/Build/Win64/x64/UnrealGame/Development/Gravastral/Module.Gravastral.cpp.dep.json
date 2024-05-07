@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\louis\\onedrive\\bureau\\epitech\\ressources\\platformer3d\\intermediate\\build\\win64\\x64\\unrealgame\\development\\gravastral\\module.gravastral.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\louis\\onedrive\\bureau\\epitech\\ressources\\platformer3d\\intermediate\\build\\win64\\x64\\gravastral\\development\\core\\sharedpch.core.cpp17.h.pch",
+        "Includes": [
+            "c:\\users\\louis\\onedrive\\bureau\\epitech\\ressources\\platformer3d\\intermediate\\build\\win64\\x64\\unrealgame\\development\\gravastral\\definitions.gravastral.h",
+            "c:\\users\\louis\\onedrive\\bureau\\epitech\\ressources\\platformer3d\\intermediate\\source\\gravastral.cpp"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

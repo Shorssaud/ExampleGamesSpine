@@ -1,0 +1,8 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.Gravastral.cpp.obj": [
+			"Gravastral.cpp.obj"
+		]
+	}
+}

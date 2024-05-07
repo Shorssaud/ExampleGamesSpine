@@ -1,0 +1,11 @@
+{
+	"SourceFiles": [
+		"C:\\Users\\Louis\\OneDrive\\Bureau\\Epitech\\Ressources\\Platformer3D\\Plugins\\SpineAPK\\Source\\SpineAPK\\SpineAPK.Build.cs",
+		"C:\\Users\\Louis\\OneDrive\\Bureau\\Epitech\\Ressources\\Platformer3D\\Intermediate\\Source\\Gravastral.Build.cs",
+		"C:\\Users\\Louis\\OneDrive\\Bureau\\Epitech\\Ressources\\Platformer3D\\Intermediate\\Source\\Gravastral.Target.cs",
+		"C:\\Users\\Louis\\OneDrive\\Bureau\\Epitech\\Ressources\\Platformer3D\\Intermediate\\Source\\GravastralClient.Target.cs",
+		"C:\\Users\\Louis\\OneDrive\\Bureau\\Epitech\\Ressources\\Platformer3D\\Intermediate\\Source\\GravastralEditor.Target.cs",
+		"C:\\Users\\Louis\\OneDrive\\Bureau\\Epitech\\Ressources\\Platformer3D\\Intermediate\\Source\\GravastralServer.Target.cs"
+	],
+	"EngineVersion": "5.3.2"
+}
