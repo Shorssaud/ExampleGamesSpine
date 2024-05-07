@@ -1,4 +1,5 @@
 # Godot Quickstart
+Before starting, make sure you have your API key and UserID which are available on the profile page. As well as the GameID of your game available in the analytics page of your game
 
 1. Add the SpineAnalyticsAPI.gd file to your game repository
 2. Add the SpineAnalyticsAPi.gd to the autoload in project->project settings->autoload
@@ -10,8 +11,9 @@ var spineAnalyticsAPI
 
 func _ready():
 	spineAnalyticsAPI = get_node("/root/SpineAnalyticsApi")
-	spineAnalyticsAPI.initialize("API_SECRET_KEY", "GAME_ID")
+	spineAnalyticsAPI.initialize("API_SECRET_KEY", "GAME_ID", "USERID")
 ```
+Replace the values in the initialize function with your information
 
 
 4. Add any data directly to the class, for example

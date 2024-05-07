@@ -52,13 +52,15 @@ public class SpineAnalyticsAPI : MonoBehaviour
     string baseUrl = "https://app-ekrmeoi24a-uc.a.run.app";
     string apiKey;
     string gameId;
+    string devId;
     string sessionId;
     public GameSessionData gameSessionData;
 
-    public void initialize(string _ApiKey, string gameId)
+    public void initialize(string _ApiKey, string _gameId, string _devId)
     {
         this.apiKey = _ApiKey;
-        this.gameId = gameId;
+        this.gameId = _gameId;
+        this.devId = _devId;
     }
 
     // These are here to avoid having to type StartCouroutine for the developers
@@ -83,7 +85,8 @@ public class SpineAnalyticsAPI : MonoBehaviour
         string url = $"{baseUrl}/statistics/newSession";
         gameSessionData.gameId = gameId;
         UnityWebRequest request = UnityWebRequest.Post(url, JsonUtility.ToJson(gameSessionData), "application/json");
-        request.SetRequestHeader("x-api-key", apiKey);
+        request.SetRequestHeader("dev-api-key", apiKey);
+        request.SetRequestHeader("user-id", devId);
         yield return request.SendWebRequest();
 
         if (request.result == UnityWebRequest.Result.Success)
