@@ -15,7 +15,7 @@ for example:
 ```C#
 SpineAnalyticsAPI.StatisticData deathData = new SpineAnalyticsAPI.StatisticData
 {
-    title = "Player deaths",
+    title = "Player Deaths",
     value = "1"
 };
 
