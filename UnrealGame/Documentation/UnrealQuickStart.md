@@ -1,36 +1,36 @@
-# Guide d'installation du plugin SpineAPK pour Unreal Engine
+# SpineAPK Plugin Installation Guide for Unreal Engine
 
-## Étapes :
+## Steps:
 
-### 1. Téléchargement du plugin
+### 1. Plugin Download
 
-Téléchargez le fichier zip du plugin à partir du [repo GitHub](https://github.com/Shorssaud/ExampleGamesSpine/releases).
+Download the plugin zip file from the [GitHub repo](https://github.com/Shorssaud/ExampleGamesSpine/releases).
 
-### 2. Extraction du fichier zip
+### 2. Extracting the Zip File
 
-Extrayez le contenu du fichier zip téléchargé dans un emplacement de votre choix sur votre ordinateur.
+Extract the contents of the downloaded zip file to a location of your choice on your computer.
 
-### 3. Copie du plugin dans le projet Unreal Engine
+### 3. Copying the Plugin into the Unreal Engine Project
 
-1. Ouvrez votre projet Unreal Engine dans l'Unreal Editor ou dans votre navigateur de fichier.
-2. Dans le répertoire de votre projet, créez un dossier nommé "Plugins" s'il n'existe pas déjà à la racine de votre projet.
+1. Open your Unreal Engine project in the Unreal Editor or in your file browser.
+2. In your project directory, create a folder named "Plugins" if it doesn't already exist at the root of your project.
 
-### 4. Copie du plugin dans le répertoire Plugins du projet
+### 4. Copying the Plugin into the Project's Plugins Directory
 
-1. Copiez le dossier du plugin extrait dans le dossier "Plugins" de votre projet.
+1. Copy the extracted plugin folder into the "Plugins" folder of your project.
 
-### 5. Redémarrage de l'Unreal Editor
+### 5. Restarting the Unreal Editor
 
-Ouvrez l'Unreal Editor pour permettre à Unreal Engine de détecter et charger le nouveau plugin.
+Open the Unreal Editor to allow Unreal Engine to detect and load the new plugin.
 
-### 6. Activation du plugin dans l'Unreal Editor
+### 6. Activating the Plugin in the Unreal Editor
 
-1. Une fois l'Unreal Editor redémarré, ouvrez votre projet.
-2. Accédez à la section "Edit" dans la barre de menu supérieure.
-3. Sélectionnez "Plugins" dans le menu déroulant.
-4. Recherchez le plugin SpineAPK dans la liste des plugins installés.
-5. Activez le plugin en cochant la case à côté de son nom.
+1. Once the Unreal Editor has restarted, open your project.
+2. Go to the "Edit" section in the top menu bar.
+3. Select "Plugins" from the dropdown menu.
+4. Look for the SpineAPK plugin in the list of installed plugins.
+5. Activate the plugin by checking the box next to its name.
 
-### 7. Utilisation du plugin dans le projet
+### 7. Using the Plugin in the Project
 
-Vous pouvez maintenant utiliser les fonctionnalités du plugin SpineAPK dans votre projet Unreal Engine en suivant cette [documentation](https://github.com/Shorssaud/ExampleGamesSpine/blob/main/UnrealGame/Documentation/UnrealPluginDocumentation.md).
+You can now use the features of the SpineAPK plugin in your Unreal Engine project by following this [documentation](https://github.com/Shorssaud/ExampleGamesSpine/blob/main/UnrealGame/Documentation/UnrealPluginDocumentation.md).
