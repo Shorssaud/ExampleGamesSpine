@@ -26,7 +26,7 @@ Ouvrez l'Unreal Editor pour permettre à Unreal Engine de détecter et charger l
 ### 6. Activation du plugin dans l'Unreal Editor
 
 1. Une fois l'Unreal Editor redémarré, ouvrez votre projet.
-2. Accédez à la section "Settings" (Paramètres) dans la barre de menu supérieure.
+2. Accédez à la section "Edit" dans la barre de menu supérieure.
 3. Sélectionnez "Plugins" dans le menu déroulant.
 4. Recherchez le plugin SpineAPK dans la liste des plugins installés.
 5. Activez le plugin en cochant la case à côté de son nom.
