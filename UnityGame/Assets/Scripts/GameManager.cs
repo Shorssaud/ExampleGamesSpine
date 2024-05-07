@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         onTransition = true;
 
         spineAnalyticsAPI = GetComponent<SpineAnalyticsAPI>();
-        spineAnalyticsAPI.initialize("APIKEYHERE", "GAMEID");
+        spineAnalyticsAPI.initialize("APIKEYHERE", "GAMEID", "DEVID");
     }
 
     void Update()
@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
     {
         SpineAnalyticsAPI.StatisticData timeData = new SpineAnalyticsAPI.StatisticData
         {
-            title = "This Works",
+            title = "Times Died",
             value = GameTime.Elapsed.Seconds.ToString()
         };
 
