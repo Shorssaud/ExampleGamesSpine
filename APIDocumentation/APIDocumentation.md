@@ -1,66 +1,66 @@
-# Documentation de l'API
+# API Documentation
 
 ## Introduction
 
-Cette API fournit des fonctionnalités pour gérer les statistiques de jeux, y compris l'ajout de nouvelles sessions de jeu, la récupération de sessions de jeu existantes, l'ajout de statistiques, achievment et erreurs à une session de jeu, ainsi que la suppression de sessions de jeu.
+This API provides functionalities for managing game statistics, including adding new game sessions, retrieving existing game sessions, adding statistics, achievements, and errors to a game session, as well as deleting game sessions.
 
-## Instructions d'utilisation
+## Usage Instructions
 
-Pour utiliser cette API, vous devez envoyer des requêtes HTTP aux différentes routes spécifiées ci-dessous. Assurez-vous d'inclure les données nécessaires dans le corps de la requête au format JSON et pour toute les requetes put et post assurez vous d'ajouter les headers nécessaire `content-type application/json` et `x-api-key 'your api key'`.
+To use this API, you need to send HTTP requests to the different routes specified below. Make sure to include the necessary data in the request body in JSON format and for all PUT and POST requests make sure to add the required headers `content-type application/json` and `x-api-key 'your api key'`.
 
 ## Routes
 
-### Ajout d'une nouvelle session de jeu
+### Adding a New Game Session
 
 - **Route**: `POST /statistics/newSession`
-- **Description**: creation d'une nouvelle session de jeu.
-- **Exemple de corps de requête**:
+- **Description**: Creates a new game session.
+- **Example Request Body**:
 ```json
-  {
+{
     "gameId": "12345"
-  }
+}
 ```
-- **Réponse réussie (status 201)**:
+- **Successful Response (status 201)**:
 ```json
 {
     "sessionId": "abcde12345"
 }
 ```
-### Récupération d'une session de jeu
+### Retrieving a Game Session
 
 - **Route**: `GET /statistics/gameSession/:uid`
-- **Description**: Récupère une session de jeu à partir de l'identifiant unique (uid) spécifié.
-- **Réponse réussie (status 200)**: Le corps de la réponse contient les détails de la session de jeu.
+- **Description**: Retrieves a game session based on the specified unique identifier (uid).
+- **Successful Response (status 200)**: The response body contains the details of the game session.
 
-### Récupération de toutes les sessions de jeu
+### Retrieving All Game Sessions
 
 - **Route**: `GET /statistics/gameSessions`
-- **Description**: Récupère toutes les sessions de jeu en fonction des paramètres de requête spécifiés.
-- **Exemple de paramètres de requête**: `?gameId=12345`
-- **Réponse réussie (status 200)**: Le corps de la réponse contient un tableau de toutes les sessions de jeu correspondantes.
+- **Description**: Retrieves all game sessions based on the specified query parameters.
+- **Example Request Headers**: `?gameId=12345`
+- **Successful Response (status 200)**: The response body contains an array of all matching game sessions.
 
-### Ajout d'une statistique à une session de jeu
+### Adding a Statistic to a Game Session
 
 - **Route**: `PUT /statistics/:uid/newStat`
-- **Description**: Ajoute une nouvelle statistique à une session de jeu spécifiée par son identifiant unique (uid).
-- **Exemple de corps de requête**:
+- **Description**: Adds a new statistic to a game session specified by its unique identifier (uid).
+- **Example Request Body**:
 ```json
 {
     "title": "Score",
     "value": 1000
 }
   ```
-  - **Réponse réussie (status 201):**
+  - **Successful Response (status 201):**
 ```json 
 {
     "message": "Statistic added successfully"
 }
 ```
-### Ajout d'un Achievement à une session de jeu
+### Adding an Achievement to a Game Session
 
 - **Route**: `PUT /statistics/:uid/newAchievement`
-- **Description**: Ajoute un Achievement à une session de jeu spécifiée par son identifiant unique (uid).
-- **Exemple de corps de requête**:
+- **Description**: Adds an achievement to a game session specified by its unique identifier (uid).
+- **Example Request Body**:
 
 ```json
 {
@@ -68,74 +68,75 @@ Pour utiliser cette API, vous devez envoyer des requêtes HTTP aux différentes 
     "description": "A remporté la première partie"
 }
 ```
- - **Réponse réussie (status 201)**:
+ - **Successful Response (status 201)**:
 
 ```json 
 {
     "message": "Achievement added successfully"
 }
 ```
-### Ajout d'une erreur à une session de jeu
+### Adding an Error to a Game Session
 
 - **Route**: `PUT /statistics/:uid/newError`
-- **Description**: Ajoute une nouvelle erreur à une session de jeu spécifiée par son identifiant unique (uid).
-- **Exemple de corps de requête**:
+- **Description**: Adds a new error to a game session specified by its unique identifier (uid).
+- **Example Request Body**:
 ```json
 {
     "title": "Erreur critique",
     "description": "Erreur lors de la sauvegarde des données"
 }
 ```
-### Réponse réussie (status 201):
+  - **Successful Response (status 201):**:
 ```json
 {
     "message": "Error added successfully"
 }
 ```
-### Suppression d'une session de jeu
+### Deleting a Game Session
 
 - **Route**: `DELETE /statistics/:uid`
-- **Description**: Supprime une session de jeu spécifiée par son identifiant unique (uid).
-- **Réponse réussie (status 200)**: Le corps de la réponse contient :
+- **Description**: Deletes a game session specified by its unique identifier (uid).
+- **Successful Response (status 200)**: The response body contains :
 ```json
 {
     "message": "Game session deleted"
 }
 ```
-### Suppression de plusieurs sessions de jeu
+### Deleting Multiple Game Sessions
 
 - **Route**: `DELETE /statistics`
-- **Description**: Supprime plusieurs sessions de jeu en fonction des paramètres de requête spécifiés.
-- **Exemple de paramètres de requête**: `?gameId=12345`
-- **Réponse réussie (status 200)**: Le corps de la réponse contient :
+- **Description**: Deletes multiple game sessions based on the specified query parameters.
+- **Example Request Parameters**: `?gameId=12345`
+- **Successful Response (status 200)**: The response body contains :
 ```json
 {
     "message": "Game sessions deleted"
 }
 ```
-### Schéma d'erreur
+### Error Schema
 
-- **title**: string (obligatoire)
+- **title**: string (required)
 - **description**: string
 - **log**: string
-- **timestamp**: string (format: date-time, par défaut: date et heure actuelles)
+- **timestamp**: string (format: date-time, default: current date and time)
 
-### Schéma de réalisation
+### Achievement Schema
 
-- **title**: string (obligatoire)
+- **title**: string (required)
 - **description**: string
-- **timestamp**: string (format: date-time, par défaut: date et heure actuelles)
+- **timestamp**: string (format: date-time, default: current date and time)
 
-### Schéma de statistique
+### Statistic Schema
 
-- **title**: string (obligatoire)
+- **title**: string (required)
 - **description**: string
-- **value**: number or string (obligatoire)
-- **timestamp**: string (format: date-time, par défaut: date et heure actuelles)
+- **value**: number or string (required)
+- **timestamp**: string (format: date-time, default: current date and time)
 
-### Schéma de session de jeu
+### Game Session Schema
 
-- **gameId**: string (obligatoire)
-- **statistics**: tableau d'objets (éléments suivant le schéma de statistique)
-- **achievements**: tableau d'objets (éléments suivant le schéma de réalisation)
-- **errors**: tableau d'objets (éléments suivant le schéma d'erreur)
+- **gameId**: string (required)
+- **statistics**: array of objects (elements following the statistic schema)
+- **achievements**: array of objects (elements following the achievement schema)
+- **errors**: array of objects (elements following the error schema)
+___
