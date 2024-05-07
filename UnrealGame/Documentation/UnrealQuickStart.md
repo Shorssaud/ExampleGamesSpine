@@ -4,7 +4,7 @@
 
 ### 1. Téléchargement du plugin
 
-Téléchargez le fichier zip du plugin à partir du [repo GitHub](lien_vers_le_repo).
+Téléchargez le fichier zip du plugin à partir du [repo GitHub](https://github.com/Shorssaud/ExampleGamesSpine/releases).
 
 ### 2. Extraction du fichier zip
 
@@ -33,4 +33,4 @@ Ouvrez l'Unreal Editor pour permettre à Unreal Engine de détecter et charger l
 
 ### 7. Utilisation du plugin dans le projet
 
-Vous pouvez maintenant utiliser les fonctionnalités du plugin SpineAPK dans votre projet Unreal Engine en suivant cette [documentation](lien_vers_le_repo).
+Vous pouvez maintenant utiliser les fonctionnalités du plugin SpineAPK dans votre projet Unreal Engine en suivant cette [documentation](https://github.com/Shorssaud/ExampleGamesSpine/blob/main/UnrealGame/Documentation/UnrealPluginDocumentation.md).
