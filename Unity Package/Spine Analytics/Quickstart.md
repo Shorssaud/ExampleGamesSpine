@@ -13,13 +13,13 @@ spineAnalyticsAPI.initialize("APIKEYHERE", "GAMEID", "USER_ID");
 5. Add the data you want to send to the class
 for example:
 ```C#
-SpineAnalyticsAPI.StatisticData timeData = new SpineAnalyticsAPI.StatisticData
+SpineAnalyticsAPI.StatisticData deathData = new SpineAnalyticsAPI.StatisticData
 {
-    title = "Time Played",
-    value = GameTime.Elapsed.Seconds.ToString()
+    title = "Player deaths",
+    value = "1"
 };
 
-spineAnalyticsAPI.gameSessionData.statistics.Add(timeData);
+spineAnalyticsAPI.gameSessionData.statistics.Add(deathData);
 ```
 This code adds the a statistic which has the amount of time the player was playing the game
 6. Send the information

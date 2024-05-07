@@ -112,13 +112,13 @@ public class GameManager : MonoBehaviour
 
     public void SendData()
     {
-        SpineAnalyticsAPI.StatisticData timeData = new SpineAnalyticsAPI.StatisticData
+        SpineAnalyticsAPI.StatisticData deathData = new SpineAnalyticsAPI.StatisticData
         {
-            title = "Times Died",
-            value = GameTime.Elapsed.Seconds.ToString()
+            title = "Player deaths",
+            value = "1"
         };
 
-        spineAnalyticsAPI.gameSessionData.statistics.Add(timeData);
+        spineAnalyticsAPI.gameSessionData.statistics.Add(deathData);
         spineAnalyticsAPI.SendSessionAsync();
     }
 
