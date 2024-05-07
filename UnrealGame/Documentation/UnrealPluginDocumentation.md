@@ -2,7 +2,7 @@
 
 ### Initialisation de l'API
 
-Pour initier l'API, utilisez le nœud "Initiate" en fournissant l'identifiant du jeu et la clé API.
+Pour initier l'API, utilisez le nœud "Initiate" en fournissant l'identifiant du jeu et la clé API de votre compte développer ainsi que votre user id disponible dans votre profile.
 
 
 ### Ajout de statistiques à la session
