@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using System.Threading;
 using System.Diagnostics;
-using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,7 +30,7 @@ public class GameManager : MonoBehaviour
         onTransition = true;
 
         spineAnalyticsAPI = GetComponent<SpineAnalyticsAPI>();
-        spineAnalyticsAPI.initialize("APIKEYHERE", "GAMEID", "DEVID");
+        spineAnalyticsAPI.initialize("API-KEY", "GAME-ID", "DEV-ID");
     }
 
     void Update()
@@ -117,9 +116,8 @@ public class GameManager : MonoBehaviour
             title = "Player deaths",
             value = "1"
         };
-
         spineAnalyticsAPI.gameSessionData.statistics.Add(deathData);
-        spineAnalyticsAPI.SendSessionAsync();
+        spineAnalyticsAPI.SendSession();
     }
 
     private void OnDestroy()

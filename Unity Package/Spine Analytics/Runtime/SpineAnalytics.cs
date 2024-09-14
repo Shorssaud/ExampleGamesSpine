@@ -64,22 +64,11 @@ public class SpineAnalyticsAPI : MonoBehaviour
     }
 
     // These are here to avoid having to type StartCouroutine for the developers
-    public void SendSessionAsync()
+    public void SendSession()
     {
         StartCoroutine(SendSessionCoroutable());
     }
 
-    public IEnumerator SendSession()
-    {
-        yield return StartCoroutine(SendSessionCoroutable());
-    }
-
-    //public void ModifySession()
-    //{
-    //    StartCoroutine(ModifySessionCoroutable());
-    //}
-
-    // Method to add a game session
     public IEnumerator SendSessionCoroutable()
     {
         string url = $"{baseUrl}/statistics/newSession";
@@ -102,23 +91,4 @@ public class SpineAnalyticsAPI : MonoBehaviour
         }
         yield break;
     }
-
-    //// Method to add a game session
-    //public IEnumerator SendStatCoroutable()
-    //{
-    //    string url = $"{baseUrl}/statistics/{}/new";
-    //    UnityWebRequest request = UnityWebRequest.PostWwwForm(url, JsonUtility.ToJson(gameSessionData));
-    //    request.SetRequestHeader("x-api-key", apiKey);
-    //    yield return request.SendWebRequest();
-
-    //    if (request.result == UnityWebRequest.Result.Success)
-    //    {
-    //        string responseText = request.downloadHandler.text;
-    //        print(responseText);
-    //    }
-    //    else
-    //    {
-    //        print("Error: " + request.error);
-    //    }
-    //}
 }
