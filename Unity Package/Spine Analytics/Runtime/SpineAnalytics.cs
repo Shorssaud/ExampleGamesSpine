@@ -64,12 +64,12 @@ public class SpineAnalyticsAPI : MonoBehaviour
     }
 
     // These are here to avoid having to type StartCouroutine for the developers
-    public void SendSession()
+    public void SendSession(Action<SessionResponse> onSessionReceived = null)
     {
-        StartCoroutine(SendSessionCoroutable());
+        StartCoroutine(SendSessionCoroutable(onSessionReceived));
     }
 
-    public IEnumerator SendSessionCoroutable()
+    public IEnumerator SendSessionCoroutable(Action<SessionResponse> onSessionReceived = null)
     {
         string url = $"{baseUrl}/statistics/newSession";
         gameSessionData.gameId = gameId;
@@ -84,6 +84,10 @@ public class SpineAnalyticsAPI : MonoBehaviour
             SessionResponse responseData = JsonUtility.FromJson<SessionResponse>(responseText);
             sessionId = responseData.sessionId;
             Debug.Log("Sucessfully sent session data");
+            if (onSessionReceived != null)
+            {
+                onSessionReceived(responseData);
+            }
         }
         else
         {

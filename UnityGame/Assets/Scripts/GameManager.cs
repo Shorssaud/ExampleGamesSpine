@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using System.Threading;
 using System.Diagnostics;
+using System;
+using static SpineAnalyticsAPI;
 
 public class GameManager : MonoBehaviour
 {
@@ -117,11 +119,16 @@ public class GameManager : MonoBehaviour
             value = "1"
         };
         spineAnalyticsAPI.gameSessionData.statistics.Add(deathData);
-        spineAnalyticsAPI.SendSession();
+        spineAnalyticsAPI.SendSession(onSessionReceived: doSomething);
     }
 
     private void OnDestroy()
     {
         UnityEngine.Debug.Log("Total Game Time: " +  GameTime.Elapsed);
     }
+    public void doSomething(SessionResponse sessionData)
+    {
+        print("Do Something Here");
+    }
 }
+
