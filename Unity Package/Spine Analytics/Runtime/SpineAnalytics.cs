@@ -64,23 +64,12 @@ public class SpineAnalyticsAPI : MonoBehaviour
     }
 
     // These are here to avoid having to type StartCouroutine for the developers
-    public void SendSessionAsync()
+    public void SendSession(Action<SessionResponse> onSessionReceived = null)
     {
-        StartCoroutine(SendSessionCoroutable());
+        StartCoroutine(SendSessionCoroutable(onSessionReceived));
     }
 
-    public IEnumerator SendSession()
-    {
-        yield return StartCoroutine(SendSessionCoroutable());
-    }
-
-    //public void ModifySession()
-    //{
-    //    StartCoroutine(ModifySessionCoroutable());
-    //}
-
-    // Method to add a game session
-    public IEnumerator SendSessionCoroutable()
+    public IEnumerator SendSessionCoroutable(Action<SessionResponse> onSessionReceived = null)
     {
         string url = $"{baseUrl}/statistics/newSession";
         gameSessionData.gameId = gameId;
@@ -95,6 +84,10 @@ public class SpineAnalyticsAPI : MonoBehaviour
             SessionResponse responseData = JsonUtility.FromJson<SessionResponse>(responseText);
             sessionId = responseData.sessionId;
             Debug.Log("Sucessfully sent session data");
+            if (onSessionReceived != null)
+            {
+                onSessionReceived(responseData);
+            }
         }
         else
         {
@@ -102,23 +95,4 @@ public class SpineAnalyticsAPI : MonoBehaviour
         }
         yield break;
     }
-
-    //// Method to add a game session
-    //public IEnumerator SendStatCoroutable()
-    //{
-    //    string url = $"{baseUrl}/statistics/{}/new";
-    //    UnityWebRequest request = UnityWebRequest.PostWwwForm(url, JsonUtility.ToJson(gameSessionData));
-    //    request.SetRequestHeader("x-api-key", apiKey);
-    //    yield return request.SendWebRequest();
-
-    //    if (request.result == UnityWebRequest.Result.Success)
-    //    {
-    //        string responseText = request.downloadHandler.text;
-    //        print(responseText);
-    //    }
-    //    else
-    //    {
-    //        print("Error: " + request.error);
-    //    }
-    //}
 }
