@@ -90,7 +90,7 @@ func send_session() -> void:
 
 
 func _http_request_completed(result, response_code, headers, body):
-	if result != HTTPRequest.RESULT_SUCCESS:
+	if response_code != HTTPRequest.RESULT_SUCCESS:
 		push_error("Error: " + body)
 		return
 
