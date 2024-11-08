@@ -91,7 +91,7 @@ func send_session() -> void:
 
 func _http_request_completed(result, response_code, headers, body):
 	if response_code != HTTPRequest.RESULT_SUCCESS:
-		push_error("Error: " + body)
+		push_error("Error: " + body.get_string_from_utf8())
 		return
 
 	var response_data = JSON.parse_string(body.get_string_from_utf8())
