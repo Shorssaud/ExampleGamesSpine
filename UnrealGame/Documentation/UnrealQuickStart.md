@@ -15,7 +15,7 @@ Extract the contents of the downloaded zip file to a location of your choice on 
 1. Open the folder located at C:\Program Files\Epic Games\'YourVersionOfUnreal'\Engine\Plugins
 
 > [!WARNING]  
-⚠️ This plugin is only available for unreal version 5.3 and below
+⚠️ This plugin is only available for unreal version 5.3
 
 ### 4. Copying the Plugin into the Project's Plugins Directory
 
