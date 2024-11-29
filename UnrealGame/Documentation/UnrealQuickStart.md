@@ -12,7 +12,7 @@ Extract the contents of the downloaded zip file to a location of your choice on 
 
 ### 3. Copying the Plugin into the Unreal Engine Project
 
-1. Open the folder located at C:\Program Files\Epic Games\UE_5\Engine\Plugins
+1. Open the folder located at C:\Program Files\Epic Games\'YourVersionOfUnreal'\Engine\Plugins
 
 ### 4. Copying the Plugin into the Project's Plugins Directory
 
