@@ -32,6 +32,7 @@ Open the Unreal Editor with the project where you want to use the plugin.
 3. Select "Plugins" from the dropdown menu.
 4. Look for the SpineAPK plugin in the list of installed plugins.
 5. Activate the plugin by checking the box next to its name.
+6. Restart Unreal if he ask to.
 
 ### 7. Using the Plugin in the Project
 
