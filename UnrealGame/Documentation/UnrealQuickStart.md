@@ -19,7 +19,7 @@ Extract the contents of the downloaded zip file to a location of your choice on 
 
 ### 4. Copying the Plugin into the Project's Plugins Directory
 
-1. Copy the extracted plugin folder into the "Plugins" folder of your project.
+1. Copy the extracted plugin folder into the "Plugins" folder of your Unreal Version.
 
 ### 5. Restarting the Unreal Editor
 
