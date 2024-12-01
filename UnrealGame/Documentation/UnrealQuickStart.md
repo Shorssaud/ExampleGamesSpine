@@ -21,9 +21,9 @@ Extract the contents of the downloaded zip file to a location of your choice on 
 
 1. Copy the extracted plugin folder into the "Plugins" folder of your Unreal Version.
 
-### 5. Restarting the Unreal Editor
+### 5. Open Unreal Editor
 
-Open the Unreal Editor to allow Unreal Engine to detect and load the new plugin.
+Open the Unreal Editor with the project where you want to use the plugin.
 
 ### 6. Activating the Plugin in the Unreal Editor
 
